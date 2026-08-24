@@ -1,0 +1,246 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>VEXED - Supported Games</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Geist:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#121414",
+                    "outline": "#849581",
+                    "surface-tint": "#00e55b",
+                    "on-tertiary-fixed": "#00210c",
+                    "tertiary-fixed": "#c4edc8",
+                    "secondary": "#c7c6ca",
+                    "on-background": "#e2e2e2",
+                    "tertiary-container": "#bfe8c4",
+                    "on-tertiary": "#14371f",
+                    "on-error": "#690005",
+                    "tertiary-fixed-dim": "#a9d0ae",
+                    "on-tertiary-container": "#466a4d",
+                    "surface-container-highest": "#333535",
+                    "on-surface": "#e2e2e2",
+                    "inverse-primary": "#006e27",
+                    "error": "#ffb4ab",
+                    "surface-container": "#1e2020",
+                    "primary-fixed-dim": "#00e55b",
+                    "inverse-on-surface": "#2f3131",
+                    "on-secondary-fixed-variant": "#46464a",
+                    "surface-variant": "#333535",
+                    "secondary-fixed": "#e3e2e6",
+                    "on-secondary-container": "#b5b4b9",
+                    "surface-dim": "#121414",
+                    "outline-variant": "#3b4b3a",
+                    "on-primary-fixed": "#002107",
+                    "on-primary": "#003911",
+                    "surface-container-high": "#282a2b",
+                    "on-secondary": "#303034",
+                    "on-tertiary-fixed-variant": "#2b4e34",
+                    "surface-container-low": "#1a1c1c",
+                    "primary-fixed": "#6bff83",
+                    "surface-container-lowest": "#0c0f0f",
+                    "background": "#121414",
+                    "secondary-fixed-dim": "#c7c6ca",
+                    "surface-bright": "#37393a",
+                    "primary-container": "#00ff66",
+                    "inverse-surface": "#e2e2e2",
+                    "secondary-container": "#46464a",
+                    "on-surface-variant": "#b9ccb5",
+                    "tertiary": "#eeffed",
+                    "primary": "#edffe8",
+                    "on-secondary-fixed": "#1b1b1f",
+                    "on-primary-fixed-variant": "#00531b",
+                    "on-error-container": "#ffdad6",
+                    "error-container": "#93000a",
+                    "on-primary-container": "#007128"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Sora", "sans-serif"],
+                    "headline-xl-mobile": ["Sora", "sans-serif"],
+                    "headline-lg": ["Sora", "sans-serif"],
+                    "body-md": ["Geist", "sans-serif"],
+                    "label-mono": ["JetBrains Mono", "monospace"],
+                    "body-lg": ["Geist", "sans-serif"],
+                    "headline-sm": ["Sora", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { 
+            background-color: #0d0e11; 
+            color: #e2e2e2; 
+            font-family: 'Geist', sans-serif;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+        .font-label-mono { font-family: 'JetBrains Mono', monospace; }
+        .font-headline-lg { font-family: 'Sora', sans-serif; }
+        .font-headline-sm { font-family: 'Sora', sans-serif; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #121414; }
+        ::-webkit-scrollbar-thumb { background: #3b4b3a; border-radius: 9999px; }
+    </style>
+</head>
+<body class="min-h-screen bg-surface font-body-md overflow-x-hidden flex flex-col relative selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Ambient Glow Background -->
+<div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary-container/5 blur-[120px]"></div>
+    <div class="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary-container/5 blur-[150px]"></div>
+</div>
+
+<!-- Sticky TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface/80 border-b border-outline-variant/30 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] px-4 sm:px-6 md:px-12 py-4 md:py-6">
+    <div class="max-w-[1920px] mx-auto w-full flex items-center justify-between gap-4 flex-wrap sm:flex-nowrap">
+        <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTv6auYdFtRrUEkGejN7yb1QCNhGLh09-J3d1JGzjIAF_Wqx5MH9Sui8ADH6WOa-G_xDC59r2-XWD5toQvn_rNjCTJJ8-yGtQOfgnMD2Hw3w_eqy4D3-_n_plkhCPd8hpffvhIEtMhtqeQl4O5hov5_mL5tdCCO3Lh4-Mpab84R6TLTd2sz6jil-vi5Mj6iS7SAA-xW7PL91vgfG6KTUK0YcFaWpuEKC0zwu8Nm5rHAMZ118qlhA2Q3JW57AKJXcWuVQ" alt="VEXED Logo" class="h-8 md:h-10 w-auto object-contain">
+            <span class="font-headline-lg text-xl sm:text-2xl tracking-tighter flex items-center">
+                <span class="text-on-surface">VEX</span><span class="text-primary-container">ED</span>
+            </span>
+        </a>
+        
+        <a href="/games" class="font-label-mono text-sm sm:text-base text-on-surface px-5 sm:px-6 py-2 rounded-full hover:bg-primary-container/5 hover:shadow-[0_0_15px_rgba(0,255,102,0.3)] active:scale-95 transition-all duration-200 flex items-center gap-2 justify-center whitespace-nowrap hover:text-primary border border-transparent hover:border-primary-container/30">
+            GAME LIST
+        </a>
+    </div>
+</header>
+
+<!-- Main Content Area -->
+<main class="flex-1 pt-8 md:pt-12 pb-12 px-4 sm:px-6 md:px-12 relative z-10 w-full max-w-[1440px] mx-auto min-w-0 flex flex-col gap-6">
+
+    <!-- Server Status Header -->
+    <div class="flex items-center gap-3 mt-2 mb-1">
+        <div class="w-1 h-5 bg-primary-container rounded-sm shadow-[0_0_8px_rgba(0,255,102,0.8)]"></div>
+        <h2 class="font-headline-sm text-base sm:text-lg md:text-xl text-on-surface uppercase tracking-wider">Game Status</h2>
+    </div>
+
+    <!-- Game List Container -->
+    <section class="flex flex-col gap-2 w-full">
+        <!-- Game Item 1: Undetected -->
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-primary-container/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate"><a href="https://www.roblox.com/games/103227105482431/META-Clicking-Simulator" target="_blank" rel="noopener noreferrer">Meta Clicking Simulator</a></span>
+            <div class="flex items-center gap-2 border border-primary-container/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-primary-container uppercase tracking-wider bg-primary-container/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_rgba(0,255,102,0.8)]"></div>
+                UNDETECTED
+            </div>
+        </div>
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-primary-container/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate"><a href="https://www.roblox.com/games/120336108521610/Capybara-Onsen" target="_blank" rel="noopener noreferrer">Capybara Onsen</a></span>
+            <div class="flex items-center gap-2 border border-primary-container/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-primary-container uppercase tracking-wider bg-primary-container/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_rgba(0,255,102,0.8)]"></div>
+                UNDETECTED
+            </div>
+        </div>
+
+<!--
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-primary-container/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Pet Simulator 99</span>
+            <div class="flex items-center gap-2 border border-primary-container/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-primary-container uppercase tracking-wider bg-primary-container/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_rgba(0,255,102,0.8)]"></div>
+                UNDETECTED
+            </div>
+        </div>
+
+        
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-amber-500/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Bee Swarm Simulator</span>
+            <div class="flex items-center gap-2 border border-amber-500/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-amber-500 uppercase tracking-wider bg-amber-500/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-amber-500 shadow-[0_0_6px_rgba(245,158,11,0.8)]"></div>
+                UPDATING
+            </div>
+        </div>
+
+        
+        <div class="flex items-center justify-between bg-red-500/5 border border-red-500/30 hover:border-red-500/60 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0 shadow-[0_0_15px_rgba(239,68,68,0.05)]">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Counter Blox</span>
+            <div class="flex items-center gap-2 border border-red-500/40 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-red-500 uppercase tracking-wider bg-red-500/10 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.9)]"></div>
+                PATCHED
+            </div>
+        </div>
+
+        
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-primary-container/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Da Hood</span>
+            <div class="flex items-center gap-2 border border-primary-container/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-primary-container uppercase tracking-wider bg-primary-container/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_rgba(0,255,102,0.8)]"></div>
+                UNDETECTED
+            </div>
+        </div>
+
+        
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-primary-container/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Arsenal</span>
+            <div class="flex items-center gap-2 border border-primary-container/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-primary-container uppercase tracking-wider bg-primary-container/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_rgba(0,255,102,0.8)]"></div>
+                UNDETECTED
+            </div>
+        </div>
+
+        
+        <div class="flex items-center justify-between bg-red-500/5 border border-red-500/30 hover:border-red-500/60 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0 shadow-[0_0_15px_rgba(239,68,68,0.05)]">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Evade</span>
+            <div class="flex items-center gap-2 border border-red-500/40 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-red-500 uppercase tracking-wider bg-red-500/10 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.9)]"></div>
+                PATCHED
+            </div>
+        </div>
+
+        
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-amber-500/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Murder Mystery 2</span>
+            <div class="flex items-center gap-2 border border-amber-500/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-amber-500 uppercase tracking-wider bg-amber-500/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-amber-500 shadow-[0_0_6px_rgba(245,158,11,0.8)]"></div>
+                UPDATING
+            </div>
+        </div>
+
+        
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-primary-container/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Adopt Me!</span>
+            <div class="flex items-center gap-2 border border-primary-container/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-primary-container uppercase tracking-wider bg-primary-container/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_rgba(0,255,102,0.8)]"></div>
+                UNDETECTED
+            </div>
+        </div>
+
+        
+        <div class="flex items-center justify-between bg-surface-container-low/80 border border-outline-variant/20 hover:border-primary-container/40 rounded-lg px-4 py-3 sm:py-3.5 transition-colors cursor-pointer group gap-4 min-w-0">
+            <span class="font-body-md text-on-surface text-sm sm:text-base font-medium truncate">Tower of Hell</span>
+            <div class="flex items-center gap-2 border border-primary-container/30 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-label-mono text-primary-container uppercase tracking-wider bg-primary-container/5 shrink-0">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_rgba(0,255,102,0.8)]"></div>
+                UNDETECTED
+            </div>
+        </div>
+-->
+    </section>
+</main>
+
+<!-- Sticky Footer matching Header blur and shadow styling -->
+<footer class="w-full bottom-0 sticky z-40 bg-surface/80 border-t border-outline-variant/30 backdrop-blur-xl shadow-[0_-8px_32px_0_rgba(0,0,0,0.8)] px-4 sm:px-6 md:px-12 py-4 md:py-6">
+    <div class="max-w-[1920px] mx-auto w-full flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="font-label-mono text-primary-container text-center sm:text-left text-xs sm:text-sm md:text-base">
+            © 2024 VEXED SCRIPTS. ALL RIGHTS RESERVED.
+        </p>
+        <nav class="flex flex-wrap justify-center gap-6 sm:gap-10">
+            <a class="font-label-mono text-xs sm:text-sm md:text-base text-on-surface-variant hover:text-primary transition-all duration-200 hover:opacity-80" href="https://discord.com/invite/vexedglobal">DISCORD</a>
+        </nav>
+    </div>
+</footer>
+
+</body></html>
