@@ -1,6 +1,190 @@
-<html>
-<title> Landing page test </title>
-<body>
-<H1> Hello world test landing page </H1>
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>VEXED SCRIPTS</title>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400&family=JetBrains+Mono:wght@500&family=Sora:wght@600;700;800&display=swap">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#bfe8c4",
+                        "surface": "#121414",
+                        "on-secondary-fixed": "#1b1b1f",
+                        "on-secondary-container": "#b5b4b9",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#006e27",
+                        "on-surface-variant": "#b9ccb5",
+                        "outline": "#849581",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e2e2e2",
+                        "on-tertiary-container": "#466a4d",
+                        "surface-bright": "#37393a",
+                        "primary-fixed": "#6bff83",
+                        "primary-fixed-dim": "#00e55b",
+                        "inverse-on-surface": "#2f3131",
+                        "on-tertiary": "#14371f",
+                        "background": "#121414",
+                        "primary": "#edffe8",
+                        "on-primary-fixed": "#002107",
+                        "tertiary-fixed": "#c4edc8",
+                        "secondary-container": "#46464a",
+                        "tertiary": "#eeffed",
+                        "surface-variant": "#333535",
+                        "inverse-surface": "#e2e2e2",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#c7c6ca",
+                        "surface-dim": "#121414",
+                        "on-primary-fixed-variant": "#00531b",
+                        "surface-container-low": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#46464a",
+                        "on-primary": "#003911",
+                        "surface-container-lowest": "#0c0f0f",
+                        "outline-variant": "#3b4b3a",
+                        "surface-tint": "#00e55b",
+                        "on-error": "#690005",
+                        "on-background": "#e2e2e2",
+                        "primary-container": "#00ff66",
+                        "surface-container-high": "#282a2b",
+                        "on-tertiary-fixed-variant": "#2b4e34",
+                        "secondary": "#c7c6ca",
+                        "surface-container-highest": "#333535",
+                        "surface-container": "#1e2020",
+                        "on-tertiary-fixed": "#00210c",
+                        "on-primary-container": "#007128",
+                        "tertiary-fixed-dim": "#a9d0ae",
+                        "secondary-fixed": "#e3e2e6",
+                        "on-secondary": "#303034"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Geist", "sans-serif"],
+                        "headline-lg": ["Sora", "sans-serif"],
+                        "headline-sm": ["Sora", "sans-serif"],
+                        "headline-xl": ["Sora", "sans-serif"],
+                        "headline-xl-mobile": ["Sora", "sans-serif"],
+                        "body-lg": ["Geist", "sans-serif"],
+                        "label-mono": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Geist', sans-serif;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+        .font-headline-xl-mobile, .font-headline-lg-mobile { font-family: 'Sora', sans-serif; }
+        .font-label-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Custom scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3b4b3a; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00ff66; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-fixed">
+
+    <!-- Floating Toast Notification -->
+    <div id="toast" class="fixed top-6 right-6 z-50 flex items-center gap-3 bg-surface-container-high/90 border border-primary-container/40 text-on-surface px-5 py-3 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] backdrop-blur-xl translate-y-[-150%] opacity-0 transition-all duration-300 pointer-events-none">
+        <span class="material-symbols-outlined text-primary-container">check_circle</span>
+        <span class="font-label-mono text-sm tracking-wide">Script copied to clipboard!</span>
+    </div>
+
+    <!-- TopAppBar -->
+    <header class="w-full top-0 sticky z-40 bg-surface/80 border-b border-outline-variant/30 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] px-4 sm:px-6 md:px-12 py-4 md:py-6">
+        <div class="max-w-[1920px] mx-auto w-full flex items-center justify-between gap-4 flex-wrap sm:flex-nowrap">
+            <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTv6auYdFtRrUEkGejN7yb1QCNhGLh09-J3d1JGzjIAF_Wqx5MH9Sui8ADH6WOa-G_xDC59r2-XWD5toQvn_rNjCTJJ8-yGtQOfgnMD2Hw3w_eqy4D3-_n_plkhCPd8hpffvhIEtMhtqeQl4O5hov5_mL5tdCCO3Lh4-Mpab84R6TLTd2sz6jil-vi5Mj6iS7SAA-xW7PL91vgfG6KTUK0YcFaWpuEKC0zwu8Nm5rHAMZ118qlhA2Q3JW57AKJXcWuVQ" alt="VEXED Logo" class="h-8 md:h-10 w-auto object-contain">
+                <span class="font-headline-lg text-xl sm:text-2xl tracking-tighter flex items-center">
+                    <span class="text-on-surface">VEX</span><span class="text-primary-container">ED</span>
+                </span>
+            </a>
+            
+            <a href="/games" class="font-label-mono text-sm sm:text-base text-on-surface px-5 sm:px-6 py-2 rounded-full hover:bg-primary-container/5 hover:shadow-[0_0_15px_rgba(0,255,102,0.3)] active:scale-95 transition-all duration-200 flex items-center gap-2 justify-center whitespace-nowrap hover:text-primary border border-transparent hover:border-primary-container/30">
+                GAME LIST
+            </a>
+        </div>
+    </header>
+
+    <!-- Centered Main Content -->
+    <main class="flex-1 flex flex-col items-center justify-center relative z-10 w-full px-4 sm:px-6 md:px-12 py-12 max-w-[1920px] mx-auto min-w-0">
+        <!-- Responsive Header -->
+        <h1 class="font-headline-xl text-[clamp(2.25rem,6vw,5rem)] leading-tight tracking-tighter text-on-surface drop-shadow-[0_0_20px_rgba(0,255,102,0.8)] md:drop-shadow-[0_0_35px_rgba(0,255,102,0.9)] text-center mb-8 md:mb-12">
+            <span class="text-on-surface">VEX</span><span class="text-primary-container">ED</span> SCRIPTS
+        </h1>
+
+        <!-- Glowing background radial effect -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[700px] md:h-[700px] bg-primary-container/10 rounded-full blur-[60px] md:blur-[120px] pointer-events-none"></div>
+
+        <!-- Dynamic Responsive Capsule Container -->
+        <div id="script-container" class="bg-surface-container-lowest/80 backdrop-blur-xl border border-primary-container/30 rounded-full py-2.5 sm:py-3 px-6 sm:px-10 flex items-center justify-center w-auto max-w-[92vw] lg:max-w-[1200px] min-w-[280px] sm:min-w-[400px] shadow-[0_0_30px_rgba(0,255,102,0.1)] md:shadow-[0_0_60px_rgba(0,255,102,0.15)] relative z-20 group hover:border-primary-container/80 hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 cursor-pointer">
+            <div class="w-full overflow-x-auto overflow-y-hidden text-center py-1 scrollbar-thin">
+                <code class="font-label-mono text-sm sm:text-base md:text-lg text-on-surface whitespace-nowrap tracking-wider inline-block align-middle" id="script-snippet">
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/vexed/script/main/source.lua"))()
+                </code>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full z-40 bg-surface border-t border-outline-variant/20 px-4 sm:px-6 md:px-12 py-6 relative">
+        <div class="max-w-[1920px] mx-auto w-full flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="font-label-mono text-primary-container text-center sm:text-left text-xs sm:text-sm md:text-base">
+                © 2024 VEXED SCRIPTS. ALL RIGHTS RESERVED.
+            </p>
+            <nav class="flex flex-wrap justify-center gap-6 sm:gap-10">
+                <a class="font-label-mono text-xs sm:text-sm md:text-base text-on-surface-variant hover:text-primary transition-all duration-200 hover:opacity-80" href="https://discord.com/invite/vexedglobal">DISCORD</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Copy & Notification Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scriptContainer = document.getElementById('script-container');
+            const snippetText = document.getElementById('script-snippet').innerText.trim();
+            const toast = document.getElementById('toast');
+            let toastTimeout;
+
+            function showToast() {
+                if (toastTimeout) clearTimeout(toastTimeout);
+                
+                toast.classList.remove('translate-y-[-150%]', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+
+                toastTimeout = setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-[-150%]', 'opacity-0');
+                }, 3000);
+            }
+
+            if (scriptContainer) {
+                scriptContainer.addEventListener('click', () => {
+                    navigator.clipboard.writeText(snippetText).then(() => {
+                        showToast();
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
