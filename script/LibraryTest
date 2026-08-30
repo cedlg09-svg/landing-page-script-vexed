@@ -898,8 +898,18 @@ local BaseGroupbox = {};
 do
     local Funcs = {};
 
+    function Funcs:Resize()
+        if self.Container and self.Container.Parent then
+            local ContainerLayout = self.Container:FindFirstChildOfClass('UIListLayout')
+            local contentHeight = ContainerLayout and ContainerLayout.AbsoluteContentSize.Y or 0
+            local targetHeight = 35 + contentHeight + 18
+            self.Container.Parent.Size = UDim2.new(1, 0, 0, math.max(targetHeight, 50))
+        end
+    end
+
     function Funcs:AddBlank(Size)
         Library:Create('Frame', { BackgroundTransparency = 1; Size = UDim2.new(1, 0, 0, Size); Parent = self.Container; });
+        self:Resize();
     end;
 
     function Funcs:AddLabel(Text, DoesWrap)
@@ -918,6 +928,7 @@ do
                 local width = math.max(TextLabel.AbsoluteSize.X, 1)
                 local Y = select(2, Library:GetTextBounds(TextLabel.Text, Library.Font, 13, Vector2.new(width, math.huge)))
                 TextLabel.Size = UDim2.new(1, -4, 0, math.max(Y, 16))
+                self:Resize()
             end
             task.defer(UpdateLabelHeight)
             TextLabel:GetPropertyChangedSignal('AbsoluteSize'):Connect(UpdateLabelHeight)
@@ -1346,10 +1357,6 @@ function Library:CreateWindow(Config)
         Children = { Library:ApplyCorner(UDim.new(0, 10)), Library:ApplyStroke(Library.OutlineColor, 1) }
     });
 
-    -- Window sizing constraints.
-    -- The minimum keeps the fixed sidebar/header controls from collapsing into
-    -- each other; the maximum prevents the window from becoming larger than
-    -- the available screen.
     local MinSize = Config.MinSize or Vector2.new(560, 420)
     local MaxSize = Config.MaxSize or Vector2.new(1200, 900)
 
@@ -1361,8 +1368,6 @@ function Library:CreateWindow(Config)
 
     Library:MakeDraggable(MainWindow, 50)
 
-    -- Bottom-right resize handle. This follows the same drag-to-resize idea
-    -- used by the reference UI, but keeps the current window position stable.
     local ResizeHandle = Library:Create('TextButton', {
         Name = 'ResizeHandle';
         AnchorPoint = Vector2.new(1, 1);
@@ -1433,8 +1438,6 @@ function Library:CreateWindow(Config)
     end)
 
     MainWindow:GetPropertyChangedSignal('AbsoluteSize'):Connect(function()
-        -- Keep the handle attached to the corner and force dependent
-        -- containers to recalculate after a resize.
         ResizeHandle.Position = UDim2.new(1, -4, 1, -4)
         for _, Tab in next, Window.Tabs do
             for _, Groupbox in next, Tab.Groupboxes do
@@ -1447,8 +1450,6 @@ function Library:CreateWindow(Config)
     Library:Create('Frame', { Parent = Sidebar; Size = UDim2.new(0, 10, 1, 0); Position = UDim2.new(1, -10, 0, 0); BackgroundColor3 = Library.SidebarColor; BorderSizePixel = 0; });
     Library:Create('Frame', { Parent = Sidebar; Size = UDim2.new(0, 1, 1, 0); Position = UDim2.new(1, -1, 0, 0); BackgroundColor3 = Library.OutlineColor; BorderSizePixel = 0; });
 
-    -- Two-level sidebar branding: optional game name above the CloverHub title.
-    -- Both labels are centered and bold, with separate heights so they never overlap.
     local GameNameLabel = Library:Create('TextLabel', {
         Name = 'GameNameHeader'; Parent = Sidebar;
         Position = UDim2.fromOffset(10, 6); Size = UDim2.new(1, -20, 0, 22);
@@ -1667,11 +1668,8 @@ function Library:CreateWindow(Config)
             local ContainerLayout = Container:FindFirstChildOfClass('UIListLayout')
 
             function Groupbox:Resize()
-                -- Let the layout calculate the real content height instead of
-                -- manually summing child heights. This prevents padding/blank
-                -- elements from being counted twice and causing overlaps.
                 local contentHeight = ContainerLayout and ContainerLayout.AbsoluteContentSize.Y or 0
-                local paddingHeight = 18 -- top 8 + bottom 10
+                local paddingHeight = 18
                 local targetHeight = 35 + contentHeight + paddingHeight
                 BoxOuter.Size = UDim2.new(1, 0, 0, math.max(targetHeight, 50))
             end
@@ -1718,8 +1716,6 @@ function Library:CreateWindow(Config)
                     for _, Btn in next, TabboxButtons:GetChildren() do if not Btn:IsA('UIListLayout') then Btn.Size = UDim2.new(1 / math.max(TabCount, 1), 0, 1, 0); end; end;
                     if not Container.Visible then return end;
 
-                    -- Use AbsoluteContentSize so the tabbox always matches its
-                    -- actual contents and does not overlap neighboring boxes.
                     local contentHeight = ContainerLayout and ContainerLayout.AbsoluteContentSize.Y or 0
                     local targetHeight = 35 + contentHeight + 18
                     BoxOuter.Size = UDim2.new(1, 0, 0, math.max(targetHeight, 50))
